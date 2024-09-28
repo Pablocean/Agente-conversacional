@@ -1,0 +1,86 @@
+<div class="--dark-theme" id="chat">
+  <div class="chat__conversation-board scroll scroll-2">
+    <div *ngFor="let message of messages" class="message-container">
+      <app-message
+        class="message"
+        [text]="message.text"
+        [date]="message.date"
+        [colorBackRight]="colorBackRight"
+        [colorFontRight]="colorFontRight"
+        [colorBackLeft]="message.error ? '#730404' : colorBackLeft"
+        [colorFontLeft]="message.error ? '#ffffff' : colorFontLeft"
+        [owner]="message.userOwner"
+        [ngClass]="{
+          'left-message': !message.userOwner,
+          'right-message': message.userOwner
+        }"
+      ></app-message>
+    </div>
+  </div>
+  <div
+    *ngIf="!showCountdown; else elseBlock"
+    class="chat__conversation-panel shadow"
+  >
+    <div class="chat__conversation-panel__container">
+      <textarea
+        class="chat__conversation-panel__input panel-item scroll scroll-2"
+        [(ngModel)]="textInput"
+        placeholder="Escriba su duda relacionada con el sistema de ingreso"
+        (keyup)="onKey($event)"
+      ></textarea>
+      <!-- class="fa fa-paper-plane fa-2x input-send" -->
+      <i
+        class="chat__conversation-panel__button panel-item btn-icon send-message-button"
+        aria-hidden="true"
+        (click)="sendMessage()"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+          data-reactid="1036"
+        >
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </i>
+    </div>
+  </div>
+  <ng-template #elseBlock>
+    <div class="chat__conversation-panel">
+      <div class="chat__conversation-panel__container">
+        <textarea
+          class="chat__conversation-panel__input panel-item"
+          placeholder="{{ info }}"
+          disabled="true"
+        ></textarea>
+        <!-- class="fa fa-paper-plane fa-2x input-send" -->
+        <i aria-hidden="true">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+            data-reactid="1036"
+          >
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </i>
+      </div>
+    </div>
+  </ng-template>
+</div>

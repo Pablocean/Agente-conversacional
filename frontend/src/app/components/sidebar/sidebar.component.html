@@ -1,0 +1,168 @@
+<nav class="sidebar close">
+  <header>
+    <div class="image-text">
+      <span class="image">
+        <img id="botImage" src="../../../assets/bot.png" alt="" />
+      </span>
+
+      <div class="text logo-text">
+        <span class="name">Agente Conversacional</span>
+        <span class="profession">Preguntas Frecuentes:</span>
+      </div>
+    </div>
+
+    <i class="bx bx-chevron-right toggle"></i>
+  </header>
+
+  <div class="menu-bar">
+    <div class="menu">
+      <!-- <li class="search-box">
+        <i class="bx bx-search icon"></i>
+        <input type="text" placeholder="Search Ganes..." />
+      </li> -->
+
+      <ul class="menu-links">
+        <li class="nav-link">
+          <a
+            [class.disabled]="!enable"
+            (click)="sendMessage('Deseo información sobre la UCI.')"
+          >
+            <i class="bx bx-home-alt icon"></i>
+            <span class="text nav-text">UCI</span>
+          </a>
+        </li>
+
+        <li class="nav-link">
+          <a
+            [class.disabled]="!enable"
+            (click)="sendMessage('¿Qué es el SIGIES?')"
+          >
+            <i class="bx bx-bar-chart-alt-2 icon"></i>
+            <span class="text nav-text">SIGIES</span>
+          </a>
+        </li>
+
+        <li class="nav-link">
+          <a
+            [class.disabled]="!enable"
+            (click)="sendMessage('¿Qué es el FORTES?')"
+          >
+            <i class="bx bx-bell icon"></i>
+            <span class="text nav-text">Fortes</span>
+          </a>
+        </li>
+        <li class="nav-link">
+          <a
+            [class.disabled]="!enable"
+            (click)="sendMessage('¿Qué es el MES?')"
+          >
+            <i class="bx bx-heart icon"></i>
+            <span class="text nav-text">MES</span>
+          </a>
+        </li>
+
+        <li class="nav-link">
+          <a
+            [class.disabled]="!enable"
+            (click)="sendMessage('¿Cuáles son los subprocesos del SIGIES?')"
+          >
+            <i class="bx bx-pie-chart-alt icon"></i>
+            <span class="text nav-text">Subprocesos</span>
+          </a>
+        </li>
+
+        <li class="nav-link">
+          <a
+            [class.disabled]="!enable"
+            (click)="sendMessage('¿Qué links oficiales puedo consultar?')"
+          >
+            <i class="bx bx-heart icon"></i>
+            <span class="text nav-text">Links</span>
+          </a>
+        </li>
+        <li class="nav-link">
+          <a
+            [class.disabled]="!enable"
+            (click)="sendMessage('¿Qué labor desarrolla el SIGIES?')"
+          >
+            <i class="bx bx-bell icon"></i>
+            <span class="text nav-text">Labor del SIGIES</span>
+          </a>
+        </li>
+
+        <li class="nav-link">
+          <a
+            [class.disabled]="!enable"
+            (click)="sendMessage('¿Qué otra información me puedes brindar?')"
+          >
+            <i class="bx bx-wallet icon"></i>
+            <span class="text nav-text">Otros</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="bottom-content">
+      <!-- <li class="">
+        <a href="#">
+          <i class="bx bx-log-out icon"></i>
+          <span class="text nav-text">Logout</span>
+        </a>
+      </li> -->
+
+      <li class="mode">
+        <div class="sun-moon">
+          <i class="bx bx-moon icon moon"></i>
+          <i class="bx bx-sun icon sun"></i>
+        </div>
+        <span class="mode-text text">Dark mode</span>
+
+        <div class="toggle-switch">
+          <span class="switch"></span>
+        </div>
+      </li>
+    </div>
+  </div>
+</nav>
+
+<section class="home">
+  <div class="text">
+    <a routerLink="/">
+      <img src="../../../assets/sigies.png" alt="Logotipo de Sigies" />
+    </a>
+    <!-- Agente Conversacional -->
+  </div>
+
+  <app-chat
+    [messages]="messages"
+    [colorBackRight]="colorBackRight"
+    [colorFontRight]="colorFontRight"
+    [colorBackLeft]="colorBackLeft"
+    [colorFontLeft]="colorFontLeft"
+    class="center"
+    (showEnable)="enableSidebar($event)"
+  ></app-chat>
+</section>
+
+<!-- <script>
+  const body = document.querySelector("body"),
+    sidebar = body.querySelector("nav"),
+    toggle = body.querySelector(".toggle"),
+    searchBtn = body.querySelector(".search-box"),
+    modeSwitch = body.querySelector(".toggle-switch"),
+    modeText = body.querySelector(".mode-text");
+  toggle.addEventListener("click", () => {
+    sidebar.classList.toggle("close");
+  });
+  searchBtn.addEventListener("click", () => {
+    sidebar.classList.remove("close");
+  });
+  modeSwitch.addEventListener("click", () => {
+    body.classList.toggle("dark");
+    if (body.classList.contains("dark")) {
+      modeText.innerText = "Light mode";
+    } else {
+      modeText.innerText = "Dark mode";
+    }
+  });
+</script> -->
